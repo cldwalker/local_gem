@@ -13,15 +13,21 @@ Install the gem with:
 
     sudo gem install cldwalker-local_gem -s http://gems.github.com
 
-In ~/.local_gem.yml or a local local_gem.yml, specify a hash of 
-gem names pointing to an array of paths to load. See local_gem.yml.example
-for an example.
+To setup your local gem paths, give LocalGem a hash of gem names pointing
+to a path or an array of paths to load. You can do this with LocalGem.setup_config
+
+    LocalGem.setup_config do |c|
+      c.gems = {'gem1'=>"/gem1/path/lib", 'gem2'=> ["/gem2/path/lib", "/gem2/path/bin"] }
+    end
+
+Or a config file at either a local local_gem.yml or ~/.local_gem.yml .
+See local_gem.yml.example for an example config file.
 
 == Use
 
 The two main methods that LocalGem provides are local_gem() and local_require()
 which map to gem() and require() respectively. Both methods will attempt
-to load local gems that you have defined. If no gem is found than they resort to default
+to load local gems that you have defined. If no gem is found than they resort to default gem/require
 behavior.
 
 There are 3 ways to use this library:
@@ -46,8 +52,12 @@ There are 3 ways to use this library:
 All three ways would add my local alias library to $LOAD_PATH. These three ways
 also apply to local_require().
 
-== Todo
 
-* Support configuration without config file
-* Tests!
-* Autodetect new gems given local gem directories
+== Motivation
+
+Got tired of installing/uninstalling the latest version of a gem I'm actively working on. This
+also makes it easy to treat any random directory of ruby files as a gem.
+
+== Limitations
+
+The override and rcov don't play nicely.

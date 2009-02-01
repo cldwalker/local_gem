@@ -1,4 +1,5 @@
 ---
-alias : ~/code/gems/alias/lib
-core : ~/code/gems/core/lib
-lightning : ~/code/gems/lightning/lib
+:gems :
+  alias : ~/code/gems/alias/lib
+  core : ~/code/gems/core/lib
+  lightning : ~/code/gems/lightning/lib

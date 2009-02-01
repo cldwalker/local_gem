@@ -24,7 +24,7 @@ begin
     s.homepage = "http://github.com/cldwalker/local_gem"
     s.authors = ["Gabriel Horner"]
     s.has_rdoc = true
-    s.files = FileList["VERSION.yml","Rakefile", "README.doc", "LICENSE.txt", "{bin,lib,test}/**/*"]
+    s.files = FileList["VERSION.yml","Rakefile", "README.rdoc", "LICENSE.txt", "{bin,lib,test}/**/*"]
   end
 
 rescue LoadError

@@ -3,13 +3,15 @@ module Kernel
   alias_method :old_gem, :gem
 
   def gem(*args)
-    load_local_gem(args[0]) || old_gem(*args)
+    LocalGem::Singleton.load_local_gem(args[0]) || old_gem(*args)
   end
 
   def require(lib)
-    load_local_gem(lib)
+    LocalGem::Singleton.load_local_gem(lib)
     old_require(lib)
   end
+
+  private :old_require, :old_gem
 end
 
-send :include, LocalGem
+self.send :include, LocalGem
