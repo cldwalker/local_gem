@@ -2,14 +2,14 @@
 
 Gem::Specification.new do |s|
   s.name = %q{local_gem}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gabriel Horner"]
   s.date = %q{2009-02-01}
   s.description = %q{Loads any gem/library simply given its path. Great for nascent gems and/or for trying the latest code on a gem.}
   s.email = %q{gabriel.horner@gmail.com}
-  s.files = ["Rakefile", "README.doc", "LICENSE.txt", "lib/local_gem", "lib/local_gem/override.rb", "lib/local_gem.rb"]
+  s.files = ["VERSION.yml", "Rakefile", "README.doc", "LICENSE.txt", "lib/local_gem", "lib/local_gem/override.rb", "lib/local_gem.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/cldwalker/local_gem}
   s.require_paths = ["lib"]
