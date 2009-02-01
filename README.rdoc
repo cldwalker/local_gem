@@ -1,0 +1,53 @@
+== Description
+
+You have the beginnings of a ruby library and you want to access it quick.
+You don't want to bother making a gemspec for it and uninstalling/reinstalling its gem
+while you mess with it. Simply tell LocalGem what paths it should load for
+your local gem and they will be loaded. Note that it doesn't matter how gem-like
+your project is ie lib and bin directories etc. LocalGem *only* needs to know
+the full path to your gem/library.
+
+== Setup
+
+Install the gem with:
+
+    sudo gem install cldwalker-local_gem -s http://gems.github.com
+
+In ~/.local_gem.yml or a local local_gem.yml, specify a hash of 
+gem names pointing to an array of paths to load. See local_gem.yml.example
+for an example.
+
+== Use
+
+The two main methods that LocalGem provides are local_gem() and local_require()
+which map to gem() and require() respectively. Both methods will attempt
+to load local gems that you have defined. If no gem is found than they resort to default
+behavior.
+
+There are 3 ways to use this library:
+
+  1. Mild: Call LocalGem with its class methods.
+      
+      require 'local_gem'
+      LocalGem.local_gem 'alias' 
+
+  2. Hot: Call methods directly having included it into your Kernel namespace.
+
+      require 'local_gem'
+      include LocalGem
+      local_gem 'alias'
+
+  3. Spicy: Override require() and gem() with local_require() and local_gem() respectively.
+      
+      require 'local_gem'
+      require 'local_gem/override'
+      gem 'alias'
+
+All three ways would add my local alias library to $LOAD_PATH. These three ways
+also apply to local_require().
+
+== Todo
+
+* Support configuration without config file
+* Tests!
+* Autodetect new gems given local gem directories
