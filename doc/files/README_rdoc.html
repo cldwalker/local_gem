@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>File: README.rdoc [RDoc Documentation]</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <link href='.././rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='file' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>README.rdoc</h1>
+        <div class='paths'>
+          README.rdoc
+        </div>
+        <div class='last-update'>
+          Last Update:
+          <span class='datetime'>Sun Feb 01 21:14:41 -0500 2009</span>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <h2>Description</h2>
+            <p>
+            You have the beginnings of a ruby library and you want to access it quick.
+            You don&#8217;t want to bother making a gemspec for it and
+            uninstalling/reinstalling its gem while you mess with it. Simply tell <a
+            href="../classes/LocalGem.html">LocalGem</a> what paths it should load for
+            your local gem and they will be loaded. Note that it doesn&#8217;t matter
+            how gem-like your project is ie lib and bin directories etc. <a
+            href="../classes/LocalGem.html">LocalGem</a> <b>only</b> needs to know the
+            full path to your gem/library.
+            </p>
+            <h2>Setup</h2>
+            <p>
+            Install the gem with:
+            </p>
+            <pre>sudo gem install cldwalker-local_gem -s http://gems.github.com</pre>
+            <p>
+            To setup your local gem paths, give <a
+            href="../classes/LocalGem.html">LocalGem</a> a hash of gem names pointing
+            to a path or an array of paths to load. You can do this with
+            LocalGem.setup_config
+            </p>
+            <pre>LocalGem.setup_config do |c|&#x000A;  c.gems = {'gem1'=&gt;&quot;/gem1/path/lib&quot;, 'gem2'=&gt; [&quot;/gem2/path/lib&quot;, &quot;/gem2/path/bin&quot;] }&#x000A;end</pre>
+            <p>
+            Or a config file at either a local local_gem.yml or ~/.local_gem.yml . See
+            local_gem.yml.example for an example config file.
+            </p>
+            <h2>Usage</h2>
+            <p>
+            The two main methods that <a href="../classes/LocalGem.html">LocalGem</a>
+            provides are local_gem() and local_require() which map to gem() and
+            require() respectively. Both methods will attempt to load local gems that
+            you have defined. If no gem is found than they resort to default
+            gem/require behavior.
+            </p>
+            <p>
+            There are 3 ways to use this library:
+            </p>
+            <pre>1. Mild: Call LocalGem with its class methods.&#x000A;&#x000A;    require 'local_gem'&#x000A;    LocalGem.local_gem 'alias'&#x000A;&#x000A;2. Hot: Call methods directly having included it into your Kernel namespace.&#x000A;&#x000A;    require 'local_gem'&#x000A;    include LocalGem&#x000A;    local_gem 'alias'&#x000A;&#x000A;3. Spicy: Override require() and gem() with local_require() and local_gem() respectively.&#x000A;&#x000A;    require 'local_gem'&#x000A;    require 'local_gem/override'&#x000A;    gem 'alias'</pre>
+            <p>
+            All three ways would add my local alias library to $LOAD_PATH. These three
+            ways also apply to local_require().
+            </p>
+            <h2>Motivation</h2>
+            <p>
+            Got tired of installing/uninstalling the latest version of a gem I&#8217;m
+            actively working on. This also makes it easy to treat any random directory
+            of ruby files as a gem.
+            </p>
+            <h2>Limitations</h2>
+            <p>
+            The override and rcov don&#8217;t play nicely.
+            </p>
+          </div>
+          <div id='section'>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>
