@@ -1,6 +1,7 @@
 require 'ostruct'
 
 class ConfigStruct < OpenStruct
+  # Converts the data within the given block to hash
   def self.block_to_hash(block=nil)
     config = self.new
     if block
@@ -11,7 +12,7 @@ class ConfigStruct < OpenStruct
     end
   end
 
-  def to_hash
+  def to_hash #:nodoc:
     @table
   end
 end

@@ -23,7 +23,7 @@ to a path or an array of paths to load. You can do this with LocalGem.setup_conf
 Or a config file at either a local local_gem.yml or ~/.local_gem.yml .
 See local_gem.yml.example for an example config file.
 
-== Use
+== Usage
 
 The two main methods that LocalGem provides are local_gem() and local_require()
 which map to gem() and require() respectively. Both methods will attempt
