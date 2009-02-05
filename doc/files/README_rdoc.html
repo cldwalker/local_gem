@@ -31,7 +31,7 @@
         </div>
         <div class='last-update'>
           Last Update:
-          <span class='datetime'>Sun Feb 01 21:14:41 -0500 2009</span>
+          <span class='datetime'>Thu Feb 05 04:24:38 -0500 2009</span>
         </div>
       </div>
       <div id='content'>
@@ -73,9 +73,10 @@
             gem/require behavior.
             </p>
             <p>
-            There are 3 ways to use this library:
+            There are 3 ways to use this library, depending on how much you want <a
+            href="../classes/LocalGem.html">LocalGem</a> to invade your namespace:
             </p>
-            <pre>1. Mild: Call LocalGem with its class methods.&#x000A;&#x000A;    require 'local_gem'&#x000A;    LocalGem.local_gem 'alias'&#x000A;&#x000A;2. Hot: Call methods directly having included it into your Kernel namespace.&#x000A;&#x000A;    require 'local_gem'&#x000A;    include LocalGem&#x000A;    local_gem 'alias'&#x000A;&#x000A;3. Spicy: Override require() and gem() with local_require() and local_gem() respectively.&#x000A;&#x000A;    require 'local_gem'&#x000A;    require 'local_gem/override'&#x000A;    gem 'alias'</pre>
+            <pre>1. Peace time:&#x000A;&#x000A;    require 'local_gem'&#x000A;    LocalGem.local_gem 'mygem'&#x000A;    LocalGem.local_require 'anothergem'&#x000A;&#x000A;2. Diplomacy is fading:&#x000A;&#x000A;    require 'local_gem'&#x000A;    include LocalGem&#x000A;    local_gem 'mygem'&#x000A;    local_require 'anothergem'&#x000A;&#x000A;3. You're fscked (Don't worry, they should default to their normal behavior, should being the&#x000A;   keyword):&#x000A;&#x000A;    require 'local_gem'&#x000A;    require 'local_gem/override'&#x000A;    gem 'mygem'&#x000A;    require 'anothergem'</pre>
             <p>
             All three ways would add my local alias library to $LOAD_PATH. These three
             ways also apply to local_require().
@@ -84,7 +85,8 @@
             <p>
             Got tired of installing/uninstalling the latest version of a gem I&#8217;m
             actively working on. This also makes it easy to treat any random directory
-            of ruby files as a gem.
+            of ruby files as a gem. Explained some more at <a
+            href="http://tagaholic.me/2009/02/localgem-loads-your-current-code-now.html">tagaholic.me/2009/02/localgem-loads-your-current-code-now.html</a>
             </p>
             <h2>Limitations</h2>
             <p>
