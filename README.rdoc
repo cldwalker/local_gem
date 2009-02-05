@@ -30,24 +30,29 @@ which map to gem() and require() respectively. Both methods will attempt
 to load local gems that you have defined. If no gem is found than they resort to default gem/require
 behavior.
 
-There are 3 ways to use this library:
+There are 3 ways to use this library, depending on how much you want LocalGem to invade your
+namespace:
 
-  1. Mild: Call LocalGem with its class methods.
-      
+  1. Peace time:
+
       require 'local_gem'
-      LocalGem.local_gem 'alias' 
+      LocalGem.local_gem 'mygem'
+      LocalGem.local_require 'anothergem'
 
-  2. Hot: Call methods directly having included it into your Kernel namespace.
+  2. Diplomacy is fading:
 
       require 'local_gem'
       include LocalGem
-      local_gem 'alias'
+      local_gem 'mygem'
+      local_require 'anothergem'
 
-  3. Spicy: Override require() and gem() with local_require() and local_gem() respectively.
+  3. You're fscked (Don't worry, they should default to their normal behavior, should being the
+     keyword):
       
       require 'local_gem'
       require 'local_gem/override'
-      gem 'alias'
+      gem 'mygem'
+      require 'anothergem'
 
 All three ways would add my local alias library to $LOAD_PATH. These three ways
 also apply to local_require().
@@ -57,6 +62,7 @@ also apply to local_require().
 
 Got tired of installing/uninstalling the latest version of a gem I'm actively working on. This
 also makes it easy to treat any random directory of ruby files as a gem.
+Explained some more at http://tagaholic.me/2009/02/localgem-loads-your-current-code-now.html
 
 == Limitations
 
