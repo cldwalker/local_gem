@@ -62,7 +62,9 @@ also apply to local_require().
 
 Got tired of installing/uninstalling the latest version of a gem I'm actively working on. This
 also makes it easy to treat any random directory of ruby files as a gem.
-Explained some more at http://tagaholic.me/2009/02/localgem-loads-your-current-code-now.html
+
+== Links
+http://tagaholic.me/2009/02/05/local-gem-loads-your-current-code-now.html
 
 == Limitations
 
