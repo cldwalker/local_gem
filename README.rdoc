@@ -11,7 +11,7 @@ the full path to your gem/library.
 
 Install the gem with:
 
-    sudo gem install cldwalker-local_gem -s http://gems.github.com
+    sudo gem install local_gem
 
 To setup your local gem paths, give LocalGem a hash of gem names pointing
 to a path or an array of paths to load. You can do this with LocalGem.setup_config
