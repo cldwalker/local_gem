@@ -1,5 +1,6 @@
 require 'ostruct'
 require 'yaml'
+require 'local_gem/version'
 
 module LocalGem
   extend self
