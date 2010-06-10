@@ -1,4 +1,4 @@
-require 'config_struct'
+require 'ostruct'
 require 'yaml'
 
 module LocalGem
@@ -59,6 +59,23 @@ module LocalGem
       else
         false
       end
+    end
+  end
+
+  class ConfigStruct < OpenStruct
+    # Converts the data within the given block to hash
+    def self.block_to_hash(block=nil)
+      config = self.new
+      if block
+        block.call(config)
+        config.to_hash
+      else
+        {}
+      end
+    end
+
+    def to_hash #:nodoc:
+      @table
     end
   end
 end
